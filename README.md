@@ -1,6 +1,4 @@
-# vtjbot
-
-slack bot for VirtualTech Japan Inc.
+# slackbot
 
 # LICENSE
 
