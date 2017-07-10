@@ -85,7 +85,7 @@ def plusplus(message, target, plusplus):
     _update_count(message, target, plusplus)
 
 
-@respond_to(r'^plusplus\s+(del|delete)\s+(\S+)')
+@listen_to(r'^\$plusplus\s+(del|delete)\s+(\S+)')
 def plusplus_delete(message, subcommand, name):
     """
     指定された名前を削除する
@@ -106,7 +106,7 @@ def plusplus_delete(message, subcommand, name):
     message.send('`{}` を削除しました'.format(name))
 
 
-@respond_to(r'^plusplus\s+rename\s+(\S+)\s+(\S+)')
+@listen_to(r'^\$plusplus\s+rename\s+(\S+)\s+(\S+)')
 def plusplus_rename(message, old, new):
     """
     指定された old から new に名前を変更する
@@ -128,7 +128,7 @@ def plusplus_rename(message, old, new):
     message.send('`{}` から `{}` に名前を変更しました(count: {})'.format(old, new, oldplus.counter))
 
 
-@respond_to(r'^plusplus\s+merge\s+(\S+)\s+(\S+)')
+@listen_to(r'^\$plusplus\s+merge\s+(\S+)\s+(\S+)')
 def plusplus_merge(message, old, new):
     """
     指定された old と new を一つにまとめる
@@ -156,7 +156,7 @@ def plusplus_merge(message, old, new):
     message.send('`{}` を `{}` に統合しました(count: {} + {} = {})'.format(old, new, oldcount, newcount, newplus.counter))
 
 
-@respond_to(r'^plusplus\s+search\s+(\S+)')
+@listen_to(r'^\$plusplus\s+search\s+(\S+)')
 def plusplus_search(message, keyword):
     """
     指定されたキーワードを含む名前とカウントの一覧を返す
