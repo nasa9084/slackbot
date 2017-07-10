@@ -5,7 +5,7 @@ from peewee import * # NOQA
 from .lunch_model import Lunch
 
 
-@listen_to('\$lunch$')
+@listen_to('^\$lunch$')
 def choose_lunch(message):
     lunch = Lunch.select().order_by(fn.Random()).limit(1)
     if not lunch:
@@ -13,7 +13,7 @@ def choose_lunch(message):
         return
     message.reply(lunch[0].name)
 
-@listen_to('\$lunch add (.+)')
+@listen_to('^\$lunch add (.+)')
 def add_lunch(message, lunch):
     try:
         Lunch.create(name=lunch)
@@ -22,7 +22,7 @@ def add_lunch(message, lunch):
         return
     message.send('ランチリストに{}を追加しました。'.format(lunch))
 
-@listen_to('\$lunch (remove|delete) (.+)')
+@listen_to('^\$lunch (remove|delete) (.+)')
 def delete_lunch(message, _, lunch):
     lunchobj = Lunch.get(name=lunch)
     lunchobj.delete_instance()
