@@ -1,6 +1,6 @@
 from random import choice
 
-from slackbot.bot import listen_to
+from slackbot.bot import listen_to, respond_to
 from peewee import * # NOQA
 from .lunch_model import Lunch
 
