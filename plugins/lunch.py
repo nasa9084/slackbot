@@ -28,7 +28,7 @@ def delete_lunch(message, _, lunch):
     lunchobj.delete_instance()
     message.send('ランチリストから{}を削除しました。'.format(lunch))
 
-@respond_to(r'^lunch\s+help')
+@respond_to(r'^lunch\s+help+')
 def lunch_help(message):
     """
     ヘルプメッセージを返す
