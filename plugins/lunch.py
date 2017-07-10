@@ -27,3 +27,13 @@ def delete_lunch(message, _, lunch):
     lunchobj = Lunch.get(name=lunch)
     lunchobj.delete_instance()
     message.send('ランチリストから{}を削除しました。'.format(lunch))
+
+@respond_to(r'^lunch\s+help+')
+def lunch_help(message):
+    """
+    ヘルプメッセージを返す
+    """
+    message.send('''- `$lunch`: ランチリストからランダムに一つ返す
+- `$lunch add (名前)`: ランチリストにランチの種類を追加する
+- `$lunch delete (名前)`: ランチリストからランチの種類を消去する
+''')
