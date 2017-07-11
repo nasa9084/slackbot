@@ -41,6 +41,7 @@ def lunch_help(message):
     ヘルプメッセージを返す
     """
     message.send('''- `$lunch`: ランチリストからランダムに一つ返す
+- `$lunch list`: ランチリストを表示する
 - `$lunch add (名前)`: ランチリストにランチの種類を追加する
 - `$lunch delete (名前)`: ランチリストからランチの種類を消去する
 ''')
