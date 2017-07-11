@@ -10,7 +10,7 @@ def list_lunch(message):
     if not lunch:
         message.reply('ランチリストがありません')
         return
-    messge.reply(', \n'.join(lunch))
+    message.reply(', \n'.join(lunch))
 
 @listen_to('^\$lunch$')
 def choose_lunch(message):
