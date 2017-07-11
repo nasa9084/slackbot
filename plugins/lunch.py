@@ -4,6 +4,13 @@ from slackbot.bot import listen_to, respond_to
 from peewee import * # NOQA
 from .lunch_model import Lunch
 
+@listen_to('^\$lunch$')
+def list_lunch(message):
+    lunch = Lunch.select()
+    if not lunch:
+        message.reply('ランチリストがありません')
+        return
+    messge.reply(', \n'.join(lunch))
 
 @listen_to('^\$lunch$')
 def choose_lunch(message):
