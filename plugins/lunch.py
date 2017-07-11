@@ -4,7 +4,7 @@ from slackbot.bot import listen_to, respond_to
 from peewee import * # NOQA
 from .lunch_model import Lunch
 
-@listen_to('^\$lunch$')
+@listen_to('^\$lunch list$')
 def list_lunch(message):
     lunch = Lunch.select()
     if not lunch:
